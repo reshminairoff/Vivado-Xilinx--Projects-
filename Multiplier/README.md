@@ -54,21 +54,6 @@ Basic_Gates → Wire Logic → Multiplexer → Multiplier → Adder → FSM...
 Each project builds on the previous one, showing consistent growth in
 digital design complexity and competence.
 
-**5. GitHub Profile Value**  
-Every verified project on GitHub serves as silent proof of practical skill
-before an interview begins. This project specifically demonstrates:
-- Ability to implement arithmetic logic in hardware
-- Clean, well-commented RTL code
-- Testbench-driven verification mindset
-- Familiarity with Xilinx Vivado simulation flow
-
-### Resume Relevance
-This project directly supports job applications targeting:
-- VLSI / RTL Design roles
-- FPGA Development positions
-- Electronics Manufacturing & Verification roles
-- Digital Design Engineer positions
-
 ---
 
 ## 🧠 Problem Statement
