@@ -9,7 +9,65 @@
 
 ## 📌 Overview
 
-This project implements a **3-bit combinational multiplier** that computes `P = D × 2` for all possible input combinations using a **Verilog `case` statement**. It is part of a series of HDL design exercises aimed at building a strong foundation in digital logic and RTL design.
+This project implements a **3-bit combinational multiplier** that computes `P = D × 2`
+for all possible input combinations using a **Verilog `case` statement**. It is part of
+a series of HDL design exercises aimed at building a strong foundation in digital logic
+and RTL design.
+
+---
+
+## 🎯 Purpose & Usefulness
+
+### Why This Project?
+
+This project was built to strengthen core RTL design skills by solving a
+real digital arithmetic problem from scratch — translating a mathematical
+operation (multiplication by 2) into synthesizable hardware logic using
+Verilog.
+
+### What This Project Demonstrates
+
+**1. RTL Thinking & Bit-Width Reasoning**  
+Understanding why the output must be 4 bits (not 3) is a fundamental RTL
+skill. A 3-bit input has a maximum value of 7; multiplying by 2 gives 14,
+which requires 4 bits to represent. This project reflects that hardware
+design thinking clearly.
+
+**2. Case Statement Proficiency**  
+The `case` statement is one of the most frequently tested concepts in VLSI
+and RTL interviews. Implementing a full truth table using `case` proves the
+ability to map logic specifications directly into synthesizable Verilog code
+— a skill directly applicable to roles in VLSI design, FPGA development,
+and digital verification.
+
+**3. Full Verification Flow**  
+Most beginner projects stop at writing the design. This project goes further
+by including a structured testbench with clock-driven inputs, automatic
+signal monitoring, and a controlled simulation end — demonstrating
+understanding of the complete RTL-to-simulation workflow used in industry.
+
+**4. Portfolio Progression**  
+This project fits into a deliberate learning roadmap:
+```
+Basic_Gates → Wire Logic → Multiplexer → Multiplier → Adder → FSM...
+```
+Each project builds on the previous one, showing consistent growth in
+digital design complexity and competence.
+
+**5. GitHub Profile Value**  
+Every verified project on GitHub serves as silent proof of practical skill
+before an interview begins. This project specifically demonstrates:
+- Ability to implement arithmetic logic in hardware
+- Clean, well-commented RTL code
+- Testbench-driven verification mindset
+- Familiarity with Xilinx Vivado simulation flow
+
+### Resume Relevance
+This project directly supports job applications targeting:
+- VLSI / RTL Design roles
+- FPGA Development positions
+- Electronics Manufacturing & Verification roles
+- Digital Design Engineer positions
 
 ---
 
@@ -26,7 +84,7 @@ Design a digital system with:
 ## 📊 Truth Table
 
 | D2 | D1 | D0 | D (dec) | P3 | P2 | P1 | P0 | P (dec) |
-|----|----|----|---------|----|----|----|----|---------|
+|----|----|----|---------|----|----|----|----|---------| 
 |  0 |  0 |  0 |    0    |  0 |  0 |  0 |  0 |    0    |
 |  0 |  0 |  1 |    1    |  0 |  0 |  1 |  0 |    2    |
 |  0 |  1 |  0 |    2    |  0 |  1 |  0 |  0 |    4    |
@@ -36,23 +94,26 @@ Design a digital system with:
 |  1 |  1 |  0 |    6    |  1 |  1 |  0 |  0 |   12    |
 |  1 |  1 |  1 |    7    |  1 |  1 |  1 |  0 |   14    |
 
-> **Key Observation:** Multiplying by 2 is equivalent to a **1-bit left shift**. Hence P0 is always 0, and P[3:1] = D[2:0].
+> **Key Observation:** Multiplying by 2 is equivalent to a **1-bit left shift**.
+> Hence P0 is always 0, and P[3:1] = D[2:0].
 
 ---
 
 ## 📁 File Structure
 
 ```
-multiplier_by2/
+Multiplier_by2/
 ├── multiplier.v          # Design module (case statement implementation)
 ├── multiplier_tb.v       # Testbench (clock-based, 800ns simulation)
 └── README.md             # Project documentation
 ```
+
 ---
 
 ## ⏱️ Testbench Clock Strategy
 
-The three inputs are driven as clocks with different periods so they automatically step through all 8 input combinations within 800ns:
+The three inputs are driven as clocks with different periods so they
+automatically step through all 8 input combinations within 800ns:
 
 ```
 Time (ns):  0   100  200  300  400  500  600  700
